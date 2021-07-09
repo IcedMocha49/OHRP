@@ -1,0 +1,34 @@
+﻿body {
+   
+    padding-bottom: 20px;
+}
+
+.herosection {
+    background-color: #000034;
+    color: white;
+    border: 2px solid #000034;
+    border-radius: 12px;
+}
+footer {
+    color: #000034;
+    
+}
+.footerend {
+    background-color: #000034;
+    color: white;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+.footerimage{
+    height: auto;
+    width: auto;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}

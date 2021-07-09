@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>@ViewBag.Title - OHRP</title>
+    <!--  @Styles.Render("~/Content/css")
+      @Scripts.Render("~/bundles/modernizr")-->
+    @Styles.Render("~/Content/Site.css")
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+
+        <div class="herosection px-4 py-5 my-5 text-center">
+            <img class="d-block mx-auto mb-4" src="~/Documents/dominicanLogo.jpg" alt="">
+            <h1 class="display-5 fw-bold">Mary Nona McGreal, OP, Center for Dominican Historical Studies at Dominican University</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">
+                    Through this project we invite Dominican communities to become active partners in
+                    collecting and preserving their history by lending or donating their existing digital or
+                    analog interviews for digitization and preservation, as well as through producing and
+                    submitting new oral history interviews.
+                </p>
+            </div>
+        </div>
+    </div>
+    <br />
+
+    <div class="container body-content">
+        @RenderBody()
+        <br />
+        <hr />
+
+
+
+        <footer class="text-center text-lg-start">
+            <section class="">
+                <div class="container text-center text-md-start mt-5">
+                    <div class="row mt-3">
+                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                            <img class="footerimage" src="~/Documents/dominicanLogo.jpg" alt="">
+                        </div>
+                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                            <h6 class="fw-bold mb-4">
+                                McGreal Center
+                            </h6>
+                            <p>7900 West Division Street River Forest, IL 60305</p>
+                            <p>
+                                mcgrealcenter@dom.edu
+                            </p>
+                            <p> (708) 524-6677</p>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            </section>
+            <br />
+            <div class="footerend">
+                <div class="text-center p-4">
+                    © 2021 Copyright: OHRP
+                </div>
+            </div>
+        </footer>
+
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/jquery.validate.min.js")
+    @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.min.js")
+ 
+    @RenderSection("scripts", required: false)
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+</html>
