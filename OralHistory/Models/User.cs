@@ -36,7 +36,7 @@ namespace OralHistory.Models
 
         [StringLength(60, MinimumLength = 5, ErrorMessage = "Title must be longer than 5 characters and shorter than 60 characters.")]
         [Required(ErrorMessage = "Title is Required")]
-        public string Title { get; set; }
+        public string TitleOH { get; set; }
 
         //do we really need to know users locations???
         //public string location { get; set; }
@@ -47,7 +47,10 @@ namespace OralHistory.Models
         public DateTime Date { get; set; }
 
         //special requirements
-        [Required]
-        public string filepath { get; set; }
+       // [Required(ErrorMessage = "Please attach file")]
+        //public string files { get; set; }
+
+
+
     }
 }

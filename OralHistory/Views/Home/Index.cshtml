@@ -9,18 +9,18 @@
 <div class="container">
 
     <form class="row g-3" asp-controller="Home" asp-action="Index" method="post">
-       
 
-       <div class="col-md-6">
-           <label asp-for="donor" class="form-label">Donor Name *</label>
-           <!--<input asp-for="DonorName" type="text" class="form-control" id="DonorName" placeholder="First and Last Name">-->
-           @Html.EditorFor(model => model.DonorName, new { htmlAttributes = new { @class = "form-control" } })
-           @Html.ValidationMessageFor(model => model.DonorName, "", new { @class = "text-danger" })
-       </div>
+
+        <div class="col-md-6">
+            <label asp-for="donor" class="form-label">Donor Name *</label>
+            <!--<input asp-for="DonorName" type="text" class="form-control" id="DonorName" placeholder="First and Last Name">-->
+            @Html.EditorFor(model => model.DonorName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DonorName, "", new { @class = "text-danger" })
+        </div>
         <div class="col-md-6">
             <label for="narrator" class="form-label">Narrator Name * </label>
-           <!--<input type="text" class="form-control" id="NarratorName" placeholder="First and Last Name">-->
-            @Html.EditorFor(model => model.NarratorName, new { htmlAttributes = new { @class = "form-control"} })
+            <!--<input type="text" class="form-control" id="NarratorName" placeholder="First and Last Name">-->
+            @Html.EditorFor(model => model.NarratorName, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.NarratorName, "", new { @class = "text-danger" })
         </div>
         <div class="col-md-6">
@@ -38,8 +38,8 @@
         <div class="col-md-6">
             <label for="title" class="form-label">Title of Oral History *</label>
             <!--<input type="text" class="form-control" id="title">-->
-            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.TitleOH, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TitleOH, "", new { @class = "text-danger" })
         </div>
         <div class="col-md-6">
             <label for="interviewDate" class="form-label">Date of Interview: </label>
@@ -48,8 +48,8 @@
         </div>
         <div class="col-md-6">
             <label for="audiofile" class="form-label">Audio File (.mp3) * </label>
-            <input type="file" class="form-control" aria-label="file">
-            @Html.ValidationMessageFor(model => model.filepath, "", new { @class = "text-danger" })
+            <input type="file" name="files" id="files" class="form-control" aria-label="file">
+           
         </div>
         <div class="col-md-6">
             <label for="file" class="form-label">Additional Files (Transcripts, Images, etc.)</label>
@@ -91,7 +91,9 @@
         <div class="col-12">
             <div class="center">
                 <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                
             </div>
         </div>
     </form>
 </div>
+
