@@ -21,8 +21,8 @@ namespace OralHistory.Controllers
 
             return View();
         }
-        
-        [HttpPost]
+
+        /*[HttpPost]
         public ActionResult Index(FormCollection formCollection)
         {
             if (ModelState.IsValid)
@@ -34,44 +34,71 @@ namespace OralHistory.Controllers
                 ViewData["files"] = formCollection["files"];
             }
             return View("Thanks");
-        }
+        }*/
+
+
 
 
         /* [HttpPost]
-         public ActionResult Index(HttpPostedFileBase files)
+         public ActionResult Index(FormCollection formCollection, HttpPostedFileBase files)
          {
              try
              {
-                 string directory = @"D:\";
+                 //single audio file
                  if (files != null && files.ContentLength > 0)
                  {
                      var fileName = Path.GetFileName(files.FileName);
-                     files.SaveAs(Path.Combine(directory, fileName));
+                     var path = Path.Combine((@"D:\uploads"), fileName);
+                     files.SaveAs(path);
                  }
-                 ViewBag.Message = "File Uploaded Successfully!!";
-                 return View();
+                 if (ModelState.IsValid)
+                 {
+                     ViewData["DonorName"] = formCollection["DonorName"];
+                     ViewData["NarratorName"] = formCollection["NarratorName"];
+                     ViewData["Email"] = formCollection["Email"];
+                     ViewData["TitleOH"] = formCollection["TitleOH"];
+                     ViewData["files"] = formCollection["files"];
+                 }
+                 return View("Thanks");
              }
              catch
              {
-                 ViewBag.Message = "File upload failed!!";
+
                  return View();
              }
-         }*/
-        /*[HttpPost]
-        public ActionResult Index(FormCollection formCollection)
-        {
-            if (ModelState.IsValid)
-            {
-                foreach (string key in formCollection.AllKeys)
-                {
-                    Response.Write("Key = " + key + "  ");
-                    Response.Write("Value = " + formCollection[key]);
-                    Response.Write("<br/>");
-                }
-            }
-            return View("Thanks");
-        }*/
 
+         }*/
+
+        [HttpPost]
+        public ActionResult Index(HttpPostedFileBase audioFile, string donorName, string narratorName, string email, string titleOh)
+        {
+            
+            try
+            {
+                //single audio file
+                if (ModelState.IsValid && audioFile != null && audioFile.ContentLength > 0)
+                {
+                    
+                    var fileName = Path.GetFileName(audioFile.FileName);
+                    var path = Path.Combine((@"D:\uploads"), fileName);
+                    audioFile.SaveAs(path);
+
+                    ViewData["DonorName"] = donorName;
+                    ViewData["NarratorName"] = narratorName;
+                    ViewData["Email"] = email;
+                    ViewData["TitleOH"] = titleOh;
+                    ViewData["audioFile"] = audioFile.FileName;
+
+                }
+                return View("Thanks");
+            }
+            catch
+            {
+                return View();
+            }
+
+
+        }
 
     }
 }

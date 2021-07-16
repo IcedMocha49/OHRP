@@ -8,7 +8,7 @@
 
 <div class="container">
 
-    <form class="row g-3" asp-controller="Home" asp-action="Index" method="post">
+    <form class="row g-3" asp-controller="Home" asp-action="Index" method="post" new { enctype = "multipart/form-data" }>
 
 
         <div class="col-md-6">
@@ -48,12 +48,12 @@
         </div>
         <div class="col-md-6">
             <label for="audiofile" class="form-label">Audio File (.mp3) * </label>
-            <input type="file" name="files" id="files" class="form-control" aria-label="file">
+            <input type="file" name="audioFile" id="audioFile" class="form-control" aria-label="file">
            
         </div>
         <div class="col-md-6">
             <label for="file" class="form-label">Additional Files (Transcripts, Images, etc.)</label>
-            <input type="file" class="form-control" aria-label="file">
+            <input type="file" name="multipleFiles" id ="multipleFiles"class="form-control" aria-label="file" multiple>
         </div>
         <div class="col-md-6">
             <br />
