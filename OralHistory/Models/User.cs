@@ -24,7 +24,7 @@ namespace OralHistory.Models
         [Required(ErrorMessage = "Interviewer name is required")]
         public string InterviewerName { get; set; }
 
-        [Required(ErrorMessage = "Email is Required")]
+        [Required(ErrorMessage = "Email is required")]
         [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
                             @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
                             @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",
@@ -34,8 +34,8 @@ namespace OralHistory.Models
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Phone is not valid")]
         public string PhoneNumber { get; set; }
 
-        [StringLength(60, MinimumLength = 5, ErrorMessage = "Title must be longer than 5 characters and shorter than 60 characters.")]
-        [Required(ErrorMessage = "Title is Required")]
+        [StringLength(512, MinimumLength = 5, ErrorMessage = "Title must be longer than 5 characters and shorter than 512 characters.")]
+        [Required(ErrorMessage = "Title is required")]
         public string TitleOH { get; set; }
 
         //do we really need to know users locations???

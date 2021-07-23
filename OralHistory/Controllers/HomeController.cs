@@ -22,6 +22,37 @@ namespace OralHistory.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Index(HttpPostedFileBase audioFile, string donorName, string narratorName, string email, string titleOh)
+        {
+
+            try
+            {
+                //single audio file
+                if (ModelState.IsValid && audioFile != null && audioFile.ContentLength > 0)
+                {
+
+                    var fileName = Path.GetFileName(audioFile.FileName);
+                    var path = Path.Combine((@"D:\uploads"), fileName);
+                    audioFile.SaveAs(path);
+
+                    ViewData["DonorName"] = donorName;
+                    ViewData["NarratorName"] = narratorName;
+                    ViewData["Email"] = email;
+                    ViewData["TitleOH"] = titleOh;
+                    ViewData["audioFile"] = audioFile.FileName;
+
+                }
+                return View("Thanks");
+            }
+            catch
+            {
+                return View();
+            }
+
+
+        }
+
         /*[HttpPost]
         public ActionResult Index(FormCollection formCollection)
         {
@@ -69,36 +100,7 @@ namespace OralHistory.Controllers
 
          }*/
 
-        [HttpPost]
-        public ActionResult Index(HttpPostedFileBase audioFile, string donorName, string narratorName, string email, string titleOh)
-        {
-            
-            try
-            {
-                //single audio file
-                if (ModelState.IsValid && audioFile != null && audioFile.ContentLength > 0)
-                {
-                    
-                    var fileName = Path.GetFileName(audioFile.FileName);
-                    var path = Path.Combine((@"D:\uploads"), fileName);
-                    audioFile.SaveAs(path);
 
-                    ViewData["DonorName"] = donorName;
-                    ViewData["NarratorName"] = narratorName;
-                    ViewData["Email"] = email;
-                    ViewData["TitleOH"] = titleOh;
-                    ViewData["audioFile"] = audioFile.FileName;
-
-                }
-                return View("Thanks");
-            }
-            catch
-            {
-                return View();
-            }
-
-
-        }
 
     }
 }

@@ -32,3 +32,17 @@ footer {
     align-items: center;
     
 }
+h5 {
+text-align: center;
+color: white;
+}
+.deedOG {
+    color: white;
+    background-color: #000034;
+    padding: 20px;
+    border: 2px solid #000034;
+    border-radius: 12px;
+}
+h3 {
+text-align: center;
+}
