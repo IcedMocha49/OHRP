@@ -1,7 +1,6 @@
 ﻿body {
     padding-bottom: 20px;
 }
-
 .herosection {
     background-color: #000034;
     color: white;
@@ -57,13 +56,4 @@ text-align: center;
     content: "*";
     font-weight: bold;
     color: white;
-}
-.formContent {
-    text-align: center;
-    color: black;
-}
-.donorInfo {
-    padding: 20px;
-    border: 2px solid #000034;
-    border-radius: 12px;
 }

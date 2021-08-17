@@ -27,12 +27,12 @@ namespace OralHistory.Controllers
         {
             try
             {
-                
-                //checks if audio and deed file are not null if not, then the file is saved to the specified server path
+                //validates if audio and deed file are not null
                 if (ModelState.IsValid && audioFile != null && audioFile.ContentLength > 0 && deedFile != null)
                 {
                     
-                        var fileName = Path.GetFileName(audioFile.FileName);
+                        var fileName = Path.GetFileName(audioFile.FileName);//gets file name
+                        //saves to specified path to directory
                         var path = Path.Combine((@"D:\uploads"), fileName);
                         audioFile.SaveAs(path);
 
