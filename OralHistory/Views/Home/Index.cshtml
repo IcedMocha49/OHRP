@@ -10,56 +10,90 @@
 
     <form class="row g-3" asp-controller="Home" asp-action="Index" method="post" new { enctype="multipart/form-data" }>
 
+        <div class="col-md-6">
+            <div class="formContent">
+                <h5>Donor Information</h5>
+            </div>
+        </div>
 
         <div class="col-md-6">
-            <label asp-for="donor" class="form-label">Donor Name *</label>
-            <!--<input asp-for="DonorName" type="text" class="form-control" id="DonorName" placeholder="First and Last Name">-->
+            <div class="formContent">
+                <h5>Interview Information</h5>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="donor" class="required">Donor Name </label>
             @Html.EditorFor(model => model.DonorName, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.DonorName, "", new { @class = "text-danger" })
         </div>
+
         <div class="col-md-6">
-            <label for="narrator" class="form-label">Narrator Name * </label>
-            <!--<input type="text" class="form-control" id="NarratorName" placeholder="First and Last Name">-->
+            <label for="narrator" class="required">Narrator/Interviewee Name  </label>
             @Html.EditorFor(model => model.NarratorName, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.NarratorName, "", new { @class = "text-danger" })
         </div>
+
         <div class="col-md-6">
-            <label for="email" class="form-label">Email *</label>
-            <!--<input type="email" class="form-control" id="Email" placeholder="example@email.com">-->
+            <label for="email" class="required">Donor Email </label>
             @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
         </div>
+
         <div class="col-md-6">
-            <label for="phone" class="form-label">Phone: </label>
-            <!--<input type="tel" class="form-control" id="PhoneNumber" placeholder="(XXX) XXX-XXXX">-->
+            <label for="interviewer" class="required">Interviewer Name  </label>
+            @Html.EditorFor(model => model.InterviewerName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.InterviewerName, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-md-6 ">
+            <label for="phone" class="secondary">Donor Phone: </label>
             @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
         </div>
-        <div class="col-12">
-            <label for="title" class="form-label">Title of Oral History *</label>
-            <!--<input type="text" class="form-control" id="title">-->
+
+        <div class="col-md-6">
+            <label for="title" class="required">Title of Oral History </label>
             @Html.EditorFor(model => model.TitleOH, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.TitleOH, "", new { @class = "text-danger" })
         </div>
 
-        <!--<div class="col-md-6">
-        <label for="interviewDate" class="form-label">Date of Interview: </label>
-        <input type="date" class="form-control" id="Date">
-
-    </div>-->
         <div class="col-md-6">
-            <label for="audiofile" class="form-label">Audio File (.mp3) * </label>
-            <input type="file" name="audioFile" id="audioFile" class="form-control" aria-label="file">
-            <br />
         </div>
+
         <div class="col-md-6">
-            <label for="file" class="form-label">Additional Files (Transcripts, Images, etc.)</label>
+            <label for="interviewDate" class="secondary">Date of Interview: </label>
+            <input type="date" class="form-control" id="Date">
+        </div>
+
+        <div class="col-md-6">
+        </div>
+
+        <div class="col-md-6">
+            <label for="location" class="secondary">Place of Interview: </label>
+            @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="col-12">
+            &nbsp;
+            <h5>Digital Files</h5>
+        </div>
+
+        <div class="col-md-6">
+            <label for="audiofile" class="required">Audio File (.mp3/.mp4/.wav/.wave)</label>
+            <input type="file" name="audioFile" id="audioFile" class="form-control" aria-label="file">
+        </div>
+
+        <div class="col-md-6">
+            <label for="file" class="secondary">Additional Files (Transcripts, Images, etc.)</label>
             <input type="file" name="multipleFiles" id="multipleFiles" class="form-control" aria-label="file" multiple>
             <br />
         </div>
+
         <div class="col-12 deedOG">
-            <h5>What is a Deed of Gift?</h5>
-           &nbsp;
+            <h4>What is a Deed of Gift?</h4>
+            &nbsp;
             <p>
                 It is a legal agreement that establishes the transfer of ownership and legal rights
                 of the donated materials between the donor and the special collections archive (McGreal Center).
@@ -69,35 +103,11 @@
                 <a href="~/Documents/Deed-of-Gift-McGreal.pdf" target="_blank">Deed of Gift</a>
             </p>
 
-            <label for="audiofile" class="form-label">Please fill out the form and attach it here  (.pdf) * </label>
-            <input type="file" name="deed" id="deed" class="form-control" aria-label="file">
+            <label for="audiofile" class="required">Please fill out the Deed of Gift and attach it here  (.pdf)  </label>
+            <input type="file" name="deedFile" id="deedFile" class="form-control" aria-label="file" accept=".pdf">
             <br />
         </div>
-        <!--<div class="col-md-6">
-        <br />
-        <label for="deed" class="form-label">Click here to download and sign </label>&nbsp;
-        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Deed of Gift
-        </button>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Deed of Gift</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <iframe src="~/Documents/Deed-of-Gift-McGreal.pdf" width="100%" height="600">
-                        </iframe>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>-->
+
         <div class="col-md-6">
             <br />
             <p>
@@ -106,15 +116,14 @@
             </p>
         </div>
 
-
-
         <div class="col-12">
             <div class="center">
-                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-
+                <button type="submit" id="submitButton" class="btn btn-primary btn-lg">Submit</button>
             </div>
             <br />
         </div>
+
     </form>
+
 </div>
 
